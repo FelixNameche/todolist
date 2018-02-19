@@ -11,32 +11,38 @@
 </head>
 <body>
     <section class="page">
-        <section class="task">
-            <div class="title_task">
-            
-            </div>
-            <div class="todotask">
-            
-            </div>
-        </section>
-        <section class="archives">
-            <div class="title_archives">
-                <h1>Archives</h1>
-            </div>
-            <div class="listarchives">
-                <input type="checkbox" name="archive" value="archive1" checked>Payer la facture sielga<br />
-                <input type="checkbox" name="archive" value="archive2" checked>Imiter le cri de Chewbaka<br />
-                <input type="checkbox" name="archive" value="archive3" checked>Dormir<br />            
-            </div>
-        </section>
-        <section class="addtask">
-            <div class="title_add">
-            
-            </div>
-            <div class="add">
-            
-            </div>
-        </section>
+        <div class="formulaire">
+            <form name="formulaire" action="contenu.php">
+            <section class="task">
+                <div class="title_task">
+                    <h1>A Faire</h1>
+                </div>
+                <div class="todotask">
+                    <input type="checkbox" name="todo" value="Faire les courses">
+                    <input type="checkbox" name="todo" value="Terminer le projet 'QCM'">
+                    <input type="checkbox" name="todo" value="Rappeler Grand-mère">
+                    <input type="checkbox" name="todo" value="Terminer le générateur aléatoire de PNJ's">
+                    <button name="submit" type="submit" form="formulaire">Enregistrer</button>
+                </div>
+            </section>
+            <section class="archives">
+                <div class="title_archives">
+                
+                </div>
+                <div class="listarchives">
+                
+                </div>
+            </section>
+            <section class="addtask">
+                <div class="title_add">
+                
+                </div>
+                <div class="add">
+                
+                </div>
+            </section>
+            </form>
+        </div>
     </section>
 </body>
 </html>
