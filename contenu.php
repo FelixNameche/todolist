@@ -53,7 +53,7 @@
             <form name="formulaire" action="contenu.php">
             <section class="task">
                 <div class="title_task">
-                    <h1>A Faire</h1>
+                    <h2>A Faire</h2>
                 </div>
                 <div class="todotask">
                     <input type="checkbox" name="todo" value="todo1">Faire les courses<br/>
@@ -65,7 +65,7 @@
             </section>
             <section class="archives">
                 <div class="title_archives">
-                    <h1>Archives</h1>
+                    <h2>Archives</h2>
                 </div>
                 <div class="listarchives">
                     <input type="checkbox" name="archive" value="archive1" checked>Payer la facture sielga<br />
