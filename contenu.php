@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +19,10 @@
                     <h1>A Faire</h1>
                 </div>
                 <div class="todotask">
-                    <input type="checkbox" name="todo" value="Faire les courses">
-                    <input type="checkbox" name="todo" value="Terminer le projet 'QCM'">
-                    <input type="checkbox" name="todo" value="Rappeler Grand-mère">
-                    <input type="checkbox" name="todo" value="Terminer le générateur aléatoire de PNJ's">
+                    <input type="checkbox" name="todo" value="todo1">Faire les courses<br/>
+                    <input type="checkbox" name="todo" value="todo2">Terminer le projet "QCM"<br/>
+                    <input type="checkbox" name="todo" value="todo3">Rappeler Grand-mère<br/>
+                    <input type="checkbox" name="todo" value="todo4">Terminer le générateur aléatoire de PNJ's<br/>
                     <button name="submit" type="submit" form="formulaire">Enregistrer</button>
                 </div>
             </section>
