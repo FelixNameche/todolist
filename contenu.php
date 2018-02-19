@@ -21,10 +21,12 @@
         </section>
         <section class="archives">
             <div class="title_archives">
-            
+                <h1>Archives</h1>
             </div>
             <div class="listarchives">
-            
+                <input type="checkbox" name="archive" value="archive1" checked>Payer la facture sielga<br />
+                <input type="checkbox" name="archive" value="archive2" checked>Imiter le cri de Chewbaka<br />
+                <input type="checkbox" name="archive" value="archive3" checked>Dormir<br />            
             </div>
         </section>
         <section class="addtask">
