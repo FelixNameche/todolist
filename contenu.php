@@ -84,8 +84,8 @@
                 <input type="text" name="addtask">
                     <input type="submit" name="valider" value="Ajouter">
                     <?php
-                        json_encode()
-                        file_put_contents()
+                        json_encode();
+                        file_put_contents();
                     ?>
                 </div>
             </section>
