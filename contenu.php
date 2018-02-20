@@ -35,6 +35,7 @@
         $verif_addtask = "pok";
         }
     }
+    // var_dump($addtask);
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,18 +49,18 @@
 <body>
     <section class="page">
         <div class="formulaire">
-            <form name="formulaire" action="contenu.php">
+            <form method="post" name="formulaire" action="contenu.php">
             <section class="task">
                 <div class="title_task">
                     <h2>A Faire</h2>
                 </div>
                 <div class="todotask">
                     <?php
-                        $contenu_fichier_json = file_get_contents('todo.json');
+                        $contenu_fichier_json = file_get_contents('./todo.json');
                         $receipt = json_decode($contenu_fichier_json, true);
-                        foreach ($receipt[0] as $key => $value) {
-                            if ($value == false){
-                                echo '<input type="checkbox" name="todo" value="$key">'.$key.'<br/>';
+                        foreach ($receipt as $key => $value) {
+                            if ("Terminer" == false){
+                                echo '<input type="checkbox" name="todo" value="Nom">'.$value.'<br/>';
                             }
                             else {
                                 echo '';
@@ -75,9 +76,9 @@
                 </div>
                 <div class="listarchives">
                     <?php
-                        foreach ($receipt[0] as $key => $value) {
-                            if ($value == true){
-                                echo '<input type="checkbox" name="archive" value="$key" checked>'.$key.'<br/>';
+                        foreach ($receipt as $key => $value) {
+                            if ("Terminer" == true){
+                                echo '<input type="checkbox" name="archive" value="$key" checked>'.$value.'<br/>';
                             }
                             else {
                                 echo '';
@@ -93,12 +94,15 @@
                 </div>
                 <div class="add">
                 <input type="text" name="addtask">
-                    <input type="submit" name="valider" value="Ajouter">
+                    <input type="submit" name="submit" value="Ajouter">
                     <?php
-                        $json = array($addtask, true);
-                        $json .=  "/n";
-                        json_encode($json, true);
-                        file_put_contents('todo.json', FILE_APPEND | LOCK_EX);
+                        if(isset($_POST['submit'])){
+                            $filename = "./todo.json";
+                            $tab = array("Nom" => $addtask, "Terminer" => false );
+                            $json = json_encode($tab);
+                            $json .= "\n";
+                            $file=file_put_contents($filename, $json, FILE_APPEND | LOCK_EX);
+                        }
                     ?>
                 </div>
             </section>

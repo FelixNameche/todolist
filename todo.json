@@ -1,8 +1,3 @@
-[{"Terminer le générateur aléatoire de PNJ's" : false,
-"Faire les courses": false,
-"Terminer le projet 'QCM'" : false,
-"Rappeler Grand-mère":false,
-"Payer la facture sielga":true,
-"Imiter le cri de Chewbaka":true,
-"Dormir":true}
-]
+{"Nom":"Se rappeler que Grand-m\u00e8re est morte","Terminer":false}
+{"Nom":"Terminer Mamy","Terminer":false}
+{"Nom":"Dormir","Terminer":false}
