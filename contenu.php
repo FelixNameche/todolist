@@ -54,14 +54,18 @@
                     <h1>A Faire</h1>
                 </div>
                 <div class="todotask">
-<?php
-    $contenu_fichier_json = file_get_contents('lang/'.$lang.'.json');
-    $tr = json_decode($contenu_fichier_json, true);
-    ?>
-                    <input type="checkbox" name="todo" value="todo1">Faire les courses<br/>
-                    <input type="checkbox" name="todo" value="todo2">Terminer le projet "QCM"<br/>
-                    <input type="checkbox" name="todo" value="todo3">Rappeler Grand-mère<br/>
-                    <input type="checkbox" name="todo" value="todo4">Terminer le générateur aléatoire de PNJ's<br/>
+                    <?php
+                        $contenu_fichier_json = file_get_contents('todo.json');
+                        $receipt = json_decode($contenu_fichier_json, true);
+                        foreach ($receipt[0] as $key => $value) {
+                            if ($value == false){
+                                echo '<input type="checkbox" name="todo" value="$key">'.$key.'<br/>';
+                            }
+                            else {
+                                echo '<input type="checkbox" name="todo" value="$key">'.$key.'<br/>';
+                            }
+                        }
+                    ?>
                     <button name="submit" type="submit" form="formulaire">Enregistrer</button>
                 </div>
             </section>
@@ -84,8 +88,13 @@
                 <input type="text" name="addtask">
                     <input type="submit" name="valider" value="Ajouter">
                     <?php
-                        json_encode()
-                        file_put_contents()
+                        if ("valider" == "Ajouter") {
+                            $send = json_encode('addtask', true);
+                            $envoi_json = file_put_contents('todo.json');
+                        }
+                        else{
+                            echo "Ajouter une tâche et validez.";
+                        }
                     ?>
                 </div>
             </section>
