@@ -11,10 +11,6 @@ body {
     text-shadow: #FFFFFF 1px 1px, #FFFFFF -1px 1px, #FFFFFF -1px -1px, #FFFFFF 1px -1px;
 }
 
-.page {
-    
-}
-
 h1 {
     font-size: 20px;
 }
@@ -23,22 +19,31 @@ h2 {
     font-size: 12px;
 }
 
-.archives {
-    padding-bottom: 15px;
-    border-bottom: #000000 solid 1px;
-    padding-left: 10px;
-}
-
 .task {
     padding-left: 10px;
+    overflow-y: scroll;
 }
 
-.addtask {
+.archives {
+    padding-bottom: 15px;
+    padding-top: 10px;
+    border-bottom: #000000 solid 1px;
     padding-left: 10px;
+    overflow-y: scroll;
 }
 
 .listarchives {
     text-decoration: line-through;
     color: gray;
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
+    
 }
+
+.todotask {
+    padding-bottom: 10px;
+}
+
+.addtask {
+    padding-left: 10px;
+}
+

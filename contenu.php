@@ -65,9 +65,9 @@
                                 echo '<input type="checkbox" name="todo" value="$key">'.$key.'<br/>';
                             }
                         }
-                    ?>
-                    <button name="submit" type="submit" form="formulaire">Enregistrer</button>
+                    ?>  
                 </div>
+                <button name="submit" type="submit" form="formulaire">Enregistrer</button>
             </section>
             <section class="archives">
                 <div class="title_archives">
