@@ -51,7 +51,7 @@
             <form name="formulaire" action="contenu.php">
             <section class="task">
                 <div class="title_task">
-                    <h1>A Faire</h1>
+                    <h2>A Faire</h2>
                 </div>
                 <div class="todotask">
                     <?php
@@ -71,7 +71,7 @@
             </section>
             <section class="archives">
                 <div class="title_archives">
-                    <h1>Archives</h1>
+                    <h2>Archives</h2>
                 </div>
                 <div class="listarchives">
                     <input type="checkbox" name="archive" value="archive1" checked>Payer la facture sielga<br />
@@ -88,13 +88,8 @@
                 <input type="text" name="addtask">
                     <input type="submit" name="valider" value="Ajouter">
                     <?php
-                        if ("valider" == "Ajouter") {
-                            $send = json_encode('addtask', true);
-                            $envoi_json = file_put_contents('todo.json');
-                        }
-                        else{
-                            echo "Ajouter une tâche et validez.";
-                        }
+                        json_encode();
+                        file_put_contents();
                     ?>
                 </div>
             </section>
