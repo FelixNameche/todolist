@@ -106,4 +106,7 @@
         </div>
     </section>
 </body>
+<footer>
+    <audio src="nyan_cat.mp3" autoplay="true" loop="true">
+</footer>
 </html>
