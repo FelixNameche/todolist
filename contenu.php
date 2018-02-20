@@ -66,9 +66,9 @@
                                 echo '';
                             }
                         }
-                    ?>
-                    <button name="submit" type="submit" form="formulaire">Enregistrer</button>
+                    ?>  
                 </div>
+                <button name="submit" type="submit" form="formulaire">Enregistrer</button>
             </section>
             <section class="archives">
                 <div class="title_archives">
@@ -110,4 +110,7 @@
         </div>
     </section>
 </body>
+<footer>
+    <audio src="nyan_cat.mp3" autoplay="true" loop="true">
+</footer>
 </html>
