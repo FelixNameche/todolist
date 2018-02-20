@@ -58,8 +58,9 @@
                     <?php
                         $contenu_fichier_json = file_get_contents('./todo.json');
                         $receipt = json_decode($contenu_fichier_json, true);
+                        // print_r($receipt);
                         foreach ($receipt as $key => $value) {
-                            if ("Terminer" == false){
+                            if ($receipt["Terminer"] == false){
                                 echo '<input type="checkbox" name="todo" value="Nom">'.$value.'<br/>';
                             }
                             else {
@@ -68,7 +69,7 @@
                         }
                     ?>  
                 </div>
-                <button name="submit" type="submit" form="formulaire">Enregistrer</button>
+                <button name="submit" type="submit" form="formulaire" value="archive">Enregistrer</button>
             </section>
             <section class="archives">
                 <div class="title_archives">
@@ -77,8 +78,8 @@
                 <div class="listarchives">
                     <?php
                         foreach ($receipt as $key => $value) {
-                            if ("Terminer" == true){
-                                echo '<input type="checkbox" name="archive" value="$key" checked>'.$value.'<br/>';
+                            if ($receipt["Terminer"] == true){
+                                echo '<input type="checkbox" name="archive" value="archive" checked>'.$value.'<br/>';
                             }
                             else {
                                 echo '';
