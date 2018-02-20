@@ -1,8 +1,11 @@
-body {
+html {
     background-image: url(https://media.giphy.com/media/Dw1m8lSxkXPZC/giphy.gif);
     background-repeat: no-repeat;
     background-size: 100vw;
     background-position: center;
+}
+
+body {
     border: #000000 solid 1px;
     margin-right: 35vw;
     margin-left: 35vw;
