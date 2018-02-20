@@ -62,7 +62,7 @@
                                 echo '<input type="checkbox" name="todo" value="$key">'.$key.'<br/>';
                             }
                             else {
-                                echo '<input type="checkbox" name="todo" value="$key">'.$key.'<br/>';
+                                echo '';
                             }
                         }
                     ?>
@@ -74,9 +74,16 @@
                     <h2>Archives</h2>
                 </div>
                 <div class="listarchives">
-                    <input type="checkbox" name="archive" value="archive1" checked>Payer la facture sielga<br />
-                    <input type="checkbox" name="archive" value="archive2" checked>Imiter le cri de Chewbaka<br />
-                    <input type="checkbox" name="archive" value="archive3" checked>Dormir<br />            
+                    <?php
+                        foreach ($receipt[0] as $key => $value) {
+                            if ($value == true){
+                                echo '<input type="checkbox" name="archive" value="$key" checked>'.$key.'<br/>';
+                            }
+                            else {
+                                echo '';
+                            }
+                        }
+                    ?>
                 </div>
             </section>
             <section class="addtask">
@@ -88,8 +95,10 @@
                 <input type="text" name="addtask">
                     <input type="submit" name="valider" value="Ajouter">
                     <?php
-                        json_encode();
-                        file_put_contents();
+                        $json = array($addtask, true);
+                        $json .=  "/n";
+                        json_encode($json, true);
+                        file_put_contents('todo.json', FILE_APPEND | LOCK_EX);
                     ?>
                 </div>
             </section>

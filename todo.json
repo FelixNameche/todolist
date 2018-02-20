@@ -1,5 +1,8 @@
-[{"Terminer le générateur aléatoire de PNJ's" : true,
+[{"Terminer le générateur aléatoire de PNJ's" : false,
 "Faire les courses": false,
-"Terminer le projet 'QCM'" : true,
-"Rappeler Grand-mère":false}
+"Terminer le projet 'QCM'" : false,
+"Rappeler Grand-mère":false,
+"Payer la facture sielga":true,
+"Imiter le cri de Chewbaka":true,
+"Dormir":true}
 ]
