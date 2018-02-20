@@ -44,8 +44,6 @@
     <title>To Do List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="fr.json"></script>
-    <script src="en.json"></script>
 </head>
 <body>
     <section class="page">
@@ -56,6 +54,10 @@
                     <h2>A Faire</h2>
                 </div>
                 <div class="todotask">
+<?php
+    $contenu_fichier_json = file_get_contents('lang/'.$lang.'.json');
+    $tr = json_decode($contenu_fichier_json, true);
+    ?>
                     <input type="checkbox" name="todo" value="todo1">Faire les courses<br/>
                     <input type="checkbox" name="todo" value="todo2">Terminer le projet "QCM"<br/>
                     <input type="checkbox" name="todo" value="todo3">Rappeler Grand-mère<br/>
@@ -81,6 +83,10 @@
                 <div class="add">
                 <input type="text" name="addtask">
                     <input type="submit" name="valider" value="Ajouter">
+                    <?php
+                        json_encode()
+                        file_put_contents()
+                    ?>
                 </div>
             </section>
             </form>
