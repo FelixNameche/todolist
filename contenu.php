@@ -60,8 +60,8 @@
                         $receipt = json_decode($contenu_fichier_json, true);
                         // print_r($receipt);
                         foreach ($receipt as $key => $value) {
-                            if ($receipt["Terminer"] == false){
-                                echo '<input type="checkbox" name="todo" value="Nom">'.$value.'<br/>';
+                            if ($value["Terminer"] == false){
+                                echo '<input type="checkbox" name="todo" value="Nom">'.$value["Nom"].'<br/>';
                             }
                             else {
                                 echo '';
@@ -78,8 +78,8 @@
                 <div class="listarchives">
                     <?php
                         foreach ($receipt as $key => $value) {
-                            if ($receipt["Terminer"] == true){
-                                echo '<input type="checkbox" name="archive" value="archive" checked>'.$value.'<br/>';
+                            if ($value["Terminer"] == true){
+                                echo '<input type="checkbox" name="archive" value="archive" checked>'.$value["Nom"].'<br/>';
                             }
                             else {
                                 echo '';
@@ -99,10 +99,10 @@
                     <?php
                         if(isset($_POST['submit'])){
                             $filename = "./todo.json";
-                            $tab = array("Nom" => $addtask, "Terminer" => false );
-                            $json = json_encode($tab);
-                            $json .= "\n";
-                            $file=file_put_contents($filename, $json, FILE_APPEND | LOCK_EX);
+                            $receipt[]= array("Nom" => $addtask, "Terminer" => false);
+                            // print_r($receipt);
+                            $json = json_encode($receipt);
+                            $file=file_put_contents($filename, $json, JSON_PRETTY_PRINT | LOCK_EX);
                         }
                     ?>
                 </div>
