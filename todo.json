@@ -1,1 +1,34 @@
-[{"Nom":"Se rappeler que Grand-m\u00e8re est morte","Terminer":false},{"Nom":"Terminer Mamy","Terminer":true},{"Nom":"Dormir","Terminer":false},{"Nom":"Peter un plomb","Terminer":false}]
+[
+    {
+        "Nom": "Se rappeler que Grand-m\u00e8re est morte",
+        "Terminer": false
+    },
+    {
+        "Nom": "Terminer Mamy",
+        "Terminer": true
+    },
+    {
+        "Nom": "Dormir",
+        "Terminer": false
+    },
+    {
+        "Nom": "Peter un plomb",
+        "Terminer": false
+    },
+    {
+        "Nom": "jouer \u00e0 lol",
+        "Terminer": false
+    },
+    {
+        "Nom": "Faire les courses",
+        "Terminer": false
+    },
+    {
+        "Nom": "Rappeler Grand-m\u00e8re",
+        "Terminer": false
+    },
+    {
+        "Nom": "Imiter le cri de Chewbacca",
+        "Terminer": false
+    }
+]

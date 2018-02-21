@@ -69,7 +69,7 @@
                         }
                     ?>  
                 </div>
-                <button name="submit" type="submit" form="formulaire" value="archive">Enregistrer</button>
+                <button name="submit" type="submit" form="formulaire" value="enregistrer">Enregistrer</button>
             </section>
             <section class="archives">
                 <div class="title_archives">
@@ -88,6 +88,10 @@
                     ?>
                 </div>
             </section>
+            </form>
+        </div>
+        <div class="formulaire">
+            <form method="post" name="ajout" action="contenu.php">
             <section class="addtask">
                 <div class="title_add">
                     <h1>Ajouter une tâche</h1>
@@ -95,16 +99,16 @@
                 </div>
                 <div class="add">
                 <input type="text" name="addtask">
-                    <input type="submit" name="submit" value="Ajouter">
                     <?php
                         if(isset($_POST['submit'])){
                             $filename = "./todo.json";
                             $receipt[]= array("Nom" => $addtask, "Terminer" => false);
                             // print_r($receipt);
-                            $json = json_encode($receipt);
-                            $file=file_put_contents($filename, $json, JSON_PRETTY_PRINT | LOCK_EX);
+                            $json = json_encode($receipt, JSON_PRETTY_PRINT);
+                            $file=file_put_contents($filename, $json, LOCK_EX);
                         }
                     ?>
+                    <input type="submit" name="submit" value="Ajouter">
                 </div>
             </section>
             </form>
@@ -112,6 +116,8 @@
     </section>
 </body>
 <footer>
-    <audio src="nyan_cat.mp3" autoplay="true" loop="true">
+    <audio autoplay loop="">
+        <source src="https://archive.org/download/nyannyannyan/NyanCatoriginal.ogg" type="audio/ogg">
+    </audio>
 </footer>
 </html>
