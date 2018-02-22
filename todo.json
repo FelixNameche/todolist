@@ -1,18 +1,18 @@
 [
     {
         "Nom": "Se rappeler que Grand-m\u00e8re est morte",
-        "Terminer": false
-    },
-    {
-        "Nom": "Terminer Mamy",
         "Terminer": true
     },
     {
-        "Nom": "Dormir",
+        "Nom": "Terminer Grand-m\u00e8re",
         "Terminer": false
     },
     {
         "Nom": "Peter un plomb",
+        "Terminer": false
+    },
+    {
+        "Nom": "Dormir",
         "Terminer": false
     },
     {
@@ -24,11 +24,11 @@
         "Terminer": false
     },
     {
-        "Nom": "Rappeler Grand-m\u00e8re",
+        "Nom": "Imiter le cri de Chewbacca",
         "Terminer": false
     },
     {
-        "Nom": "Imiter le cri de Chewbacca",
+        "Nom": "Rappeler Grand-m\u00e8re",
         "Terminer": false
     }
 ]
