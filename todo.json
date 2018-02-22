@@ -9,7 +9,7 @@
     },
     {
         "Nom": "Peter un plomb",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Dormir",
@@ -21,7 +21,7 @@
     },
     {
         "Nom": "Faire les courses",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Imiter le cri de Chewbacca",
@@ -29,7 +29,7 @@
     },
     {
         "Nom": "Rappeler Grand-m\u00e8re",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Pr\u00e9venir Grand-p\u00e8re",
@@ -37,6 +37,6 @@
     },
     {
         "Nom": "Terminer Grand-p\u00e8re",
-        "Terminer": false
+        "Terminer": true
     }
 ]

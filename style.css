@@ -24,29 +24,35 @@ h2 {
 
 .task {
     padding-left: 10px;
+
+}
+
+.todotask {
+    padding-bottom: 10px;
     overflow-y: scroll;
+    height: 20vh;
 }
 
 .archives {
     padding-bottom: 15px;
-    padding-top: 10px;
+    padding-top: 20px;
     border-bottom: #000000 solid 1px;
     padding-left: 10px;
-    overflow-y: scroll;
 }
 
 .listarchives {
     text-decoration: line-through;
     color: gray;
     text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px, #000 1px -1px;
-    
-}
-
-.todotask {
-    padding-bottom: 10px;
+    overflow-y: scroll;
+    height: 20vh;
 }
 
 .addtask {
     padding-left: 10px;
 }
 
+.buttonretrait {
+    text-decoration: none;
+    padding-top: 10px;    
+}

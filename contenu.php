@@ -33,7 +33,7 @@
     // bouton retirer
     if (isset($_POST['unsave'])){
         $choix=$_POST['removetask'];
-        //var_dump(choix);
+        // var_dump($choix);
         for ($init = 0; $init < count($receipt); $init ++){
             if (!in_array($receipt[$init]['Nom'], $choix)){
               $receipt[$init]['Terminer'] = false;
@@ -61,8 +61,8 @@
                     <div class="title_task">
                         <h2>A Faire</h2>
                     </div>
-                    <div class="todotask">
-                        <form action="contenu.php" method="post" name="formafaire">
+                    <form action="contenu.php" method="post" name="formafaire">
+                        <div class="todotask">
                             <?php
                                 foreach ($receipt as $key => $value){
                                     if ($value["Terminer"] == false){
@@ -71,16 +71,18 @@
                                     }
                                 }
                             ?>
-                            <input type="submit" name="save" value="Enregistrer" >
-                        </form>
-                    </div>
+                        </div>
+                        <div class="buttonretrait">
+                            <input type="submit" name="save" value="Enregistrer">
+                        </div>
+                    </form>
                 </section>
                 <section class="archives">
                     <div class="title_archives">
                         <h2>Archives</h2>
                     </div>
-                    <div class="listarchives">
-                        <form action="contenu.php" method="post" name="formchecked">
+                    <form action="contenu.php" method="post" name="formchecked">
+                        <div class="listarchives">
                             <?php
                                 foreach ($receipt as $key => $value){
                                     if ($value["Terminer"] == true){
@@ -90,9 +92,11 @@
                                     }
                                 }
                             ?>
+                        </div>
+                        <div class="buttonretrait">
                             <input type="submit" name="unsave" value="Retirer">
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </section>
             </div>
             <div class="formulaire">
