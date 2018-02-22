@@ -1,43 +1,49 @@
 <?php
-// ini_set("display_errors",0);error_reporting(0);
-    if(isset($_POST['submit'])){
-
-        $options = array(
-        'todo' => FILTER_SANITIZE_STRING,
-        'archive'  => FILTER_SANITIZE_STRING,
-        'addtask'   => FILTER_SANITIZE_STRING
-        );
-      
-        $result = filter_input_array(INPUT_POST, $options);
-        $checkResult =[];
-
-        $todo = trim($result['todo']);
-        $archive = trim($result['archive']);
-        $addtask = trim($result['addtask']);
-
-        if(isset($todo) AND !empty($todo) ){
-        $verif_todo = "ok";
-        }
-        else {
-        $verif_todo = "pok";
-        }
-    
-        if(isset($archive) AND !empty($archive) ){
-        $verif_archive = "ok";
-        }
-        else {
-        $verif_archive = "pok";
-        }
-    
-        if(isset($addtask) AND !empty($addtask) ){
-        $verif_addtask = "ok";
-        }
-        else {
-        $verif_addtask = "pok";
-        }
+    ini_set("display_errors",0);error_reporting(0);
+    $filename="todo.json";
+    $contenu_json = file_get_contents($filename);
+    $receipt = json_decode($contenu_json, true);
+        
+    //bouton ajouter
+    if (isset($_POST['submit']) AND end($receipt)['Nom'] != $_POST['addtask']){
+        $add_tache = $_POST['addtask'];
+        $array_tache = array("Nom" => $add_tache,
+                             "Terminer" => false);
+        $receipt[] = $array_tache;
+        $json= json_encode($receipt, JSON_PRETTY_PRINT);
+        file_put_contents($filename, $json);
+        $receipt = json_decode($json, true);
     }
-    // var_dump($addtask);
+    
+    //bouton enregistrer
+    if (isset($_POST['save'])){
+        $choix=$_POST['addtask'];
 
+        for ($init = 0; $init < count($receipt); $init ++){
+            if (in_array($receipt[$init]['Nom'], $choix)){
+              $receipt[$init]['Terminer'] = true;
+            }
+        }
+
+        $json= json_encode($receipt, JSON_PRETTY_PRINT);
+        file_put_contents($filename, $json);
+        $receipt = json_decode($json, true);
+    }
+
+    // bouton retirer
+    if (isset($_POST['unsave'])){
+        $choix=$_POST['addtask'];
+
+        for ($init = 0; $init < count($receipt); $init ++){
+            if (in_array($receipt[$init]['Nom'], $choix)){
+              $receipt[$init]['Terminer'] = false;
+            }
+        }
+
+        $json= json_encode($receipt, JSON_PRETTY_PRINT);
+        file_put_contents($filename, $json);
+        $receipt = json_decode($json, true);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,55 +57,43 @@
     <body>
         <section class="page">
             <div class="formulaire">
-                <form method="post" name="formulaire" action="contenu.php">
                 <section class="task">
                     <div class="title_task">
                         <h2>A Faire</h2>
                     </div>
                     <div class="todotask">
-                        <?php
-                            $contenu_fichier_json = file_get_contents('./todo.json');
-                            $receipt = json_decode($contenu_fichier_json, true);
-                            // print_r($receipt);
-                            foreach ($receipt as $key => $value) {
-                                if ($value["Terminer"] == false){
-                                    echo '<input type="checkbox" name="addtask[]" value="Nom">'.$value["Nom"].'<br/>';
+                        <form action="contenu.php" method="post" name="formafaire">
+                            <?php
+                                foreach ($receipt as $key => $value){
+                                    if ($value["Terminer"] == false){
+                                        echo "<input type='checkbox' name='addtask[]' value='".$value["Nom"]."'/>
+                                            <label for='choix'>".$value["Nom"]."</label><br />";
+                                    }
                                 }
-                                else {
-                                    echo '';
-                                }
-                            }
-                        ?>  
+                            ?>
+                            <input type="submit" name="save" value="Enregistrer" >
+                        </form>
                     </div>
-                    <input name="save" type="submit" value="Enregistrer">
-                    <?php
-                        if (isset($_POST['save'])){
-                            $check=$_POST['addtask'];
-                            for ($init = 0; $init < count($receipt); $init ++){
-                                if (in_array($receipt[$init]['Nom'], $check)){
-                                $receipt[$init]['Terminer'] = true;
-                                }
-                            }
-                    ?>
                 </section>
                 <section class="archives">
                     <div class="title_archives">
                         <h2>Archives</h2>
                     </div>
                     <div class="listarchives">
-                        <?php
-                            foreach ($receipt as $key => $value) {
-                                if ($value["Terminer"] == true){
-                                    echo '<input type="checkbox" name="archive" value="addtask[]" checked>'.$value["Nom"].'<br/>';
+                        <form action="contenu.php" method="post" name="formchecked">
+                            <?php
+                                foreach ($receipt as $key => $value){
+                                    if ($value["Terminer"] == true){
+
+                                        echo "<input type='checkbox' name='addtask[]' value='".$value["Nom"]."'checked/>
+                                            <label for='choix'>".$value["Nom"]."</label><br />";
+                                    }
                                 }
-                                else {
-                                    echo '';
-                                }
-                            }
-                        ?>
+                            ?>
+                            <input type="submit" name="unsave" value="Retirer">
+                        </form>
                     </div>
                 </section>
-                </form>
             </div>
             <div class="formulaire">
                 <form method="post" name="ajout" action="contenu.php">
@@ -109,17 +103,10 @@
                         <h2>La tâche à effectuer</h2>
                     </div>
                     <div class="add">
-                    <input type="text" name="addtask">
-                        <?php
-                            if(isset($_POST['submit'])){
-                                $filename = "./todo.json";
-                                $receipt[]= array("Nom" => $addtask, "Terminer" => false);
-                                // print_r($receipt);
-                                $json = json_encode($receipt, JSON_PRETTY_PRINT);
-                                $file=file_put_contents($filename, $json, LOCK_EX);
-                            }
-                        ?>
-                        <input type="submit" name="submit" value="Ajouter">
+                        <form class="" action="contenu.php" method="post">
+                            <input type="text" name="addtask" value="">
+                            <input type="submit" name="submit" value="Ajouter">
+                        </form>
                     </div>
                 </section>
                 </form>

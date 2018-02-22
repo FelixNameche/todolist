@@ -1,7 +1,7 @@
 [
     {
         "Nom": "Se rappeler que Grand-m\u00e8re est morte",
-        "Terminer": true
+        "Terminer": false
     },
     {
         "Nom": "Terminer Grand-m\u00e8re",
@@ -29,6 +29,10 @@
     },
     {
         "Nom": "Rappeler Grand-m\u00e8re",
+        "Terminer": false
+    },
+    {
+        "Nom": "Pr\u00e9venir Mamy",
         "Terminer": false
     }
 ]
