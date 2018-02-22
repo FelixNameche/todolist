@@ -85,7 +85,6 @@
                         <div class="listarchives">
                             <?php
                                 foreach ($receipt as $key => $value){
-
                                     if ($value["Terminer"] == true){
 
                                         echo "<input type='checkbox' name='removetask[]' value='".$value["Nom"]."'checked/>
