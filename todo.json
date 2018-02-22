@@ -13,15 +13,15 @@
     },
     {
         "Nom": "Dormir",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "jouer \u00e0 lol",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Faire les courses",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Imiter le cri de Chewbacca",
