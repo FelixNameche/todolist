@@ -33,7 +33,7 @@
     // bouton retirer
     if (isset($_POST['unsave'])){
         $choix=$_POST['removetask'];
-        var_dump($choix);
+        // var_dump($choix);
         for ($init = 0; $init < count($receipt); $init ++){
             if (!in_array($receipt[$init]['Nom'], $choix)){
               $receipt[$init]['Terminer'] = false;
@@ -91,7 +91,7 @@
                                     }
                                 }
                             ?>
-                            <input type="submit" name="unsave" value="Retirer">
+                            <input class="buttonretrait" type="submit" name="unsave" value="Retirer">
                         </form>
                     </div>
                 </section>
