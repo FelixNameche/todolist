@@ -1,7 +1,7 @@
 [
     {
         "Nom": "Se rappeler que Grand-m\u00e8re est morte",
-        "Terminer": true
+        "Terminer": false
     },
     {
         "Nom": "Terminer Grand-m\u00e8re",
@@ -13,22 +13,30 @@
     },
     {
         "Nom": "Dormir",
-        "Terminer": true
-    },
-    {
-        "Nom": "jouer \u00e0 lol",
-        "Terminer": true
-    },
-    {
-        "Nom": "Faire les courses",
-        "Terminer": true
-    },
-    {
-        "Nom": "Imiter le cri de Chewbacca",
         "Terminer": false
     },
     {
+        "Nom": "Jouer \u00e0 lol",
+        "Terminer": false
+    },
+    {
+        "Nom": "Faire les courses",
+        "Terminer": false
+    },
+    {
+        "Nom": "Imiter le cri de Chewbacca",
+        "Terminer": true
+    },
+    {
         "Nom": "Rappeler Grand-m\u00e8re",
+        "Terminer": false
+    },
+    {
+        "Nom": "Pr\u00e9venir Grand-p\u00e8re",
+        "Terminer": false
+    },
+    {
+        "Nom": "Terminer Grand-p\u00e8re",
         "Terminer": false
     }
 ]
