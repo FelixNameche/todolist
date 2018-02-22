@@ -16,7 +16,7 @@
         "Terminer": false
     },
     {
-        "Nom": "jouer \u00e0 lol",
+        "Nom": "Jouer \u00e0 lol",
         "Terminer": false
     },
     {
@@ -25,14 +25,18 @@
     },
     {
         "Nom": "Imiter le cri de Chewbacca",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Rappeler Grand-m\u00e8re",
         "Terminer": false
     },
     {
-        "Nom": "Pr\u00e9venir Mamy",
+        "Nom": "Pr\u00e9venir Grand-p\u00e8re",
+        "Terminer": false
+    },
+    {
+        "Nom": "Terminer Grand-p\u00e8re",
         "Terminer": false
     }
 ]
