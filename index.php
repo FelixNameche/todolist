@@ -45,12 +45,17 @@
         if(isset($_POST['submit'])){
 
             $options = array(
-            'addtask' => FILTER_SANITIZE_STRING);
+            'addtask' => FILTER_SANITIZE_STRING,
+            'addtask[]' => FILTER_SANITIZE_STRING,
+            'removetask[]' => FILTER_SANITIZE_STRING);
         
             $result = filter_input_array(INPUT_POST, $options);
             $checkResult =[];
         
             $addtask = trim($result['addtask']);
+            $addtaskarray = trim($result['addtask[]']);
+            $removetask = trim($result['removetask[]']);
+
         
             if(isset($addtask) AND !empty($addtask) ){
             $verif_addtask = "ok";
@@ -63,12 +68,16 @@
         if(isset($_POST['save'])){
 
             $options = array(
-            'addtask[]' => FILTER_SANITIZE_STRING);
+                'addtask' => FILTER_SANITIZE_STRING,
+                'addtask[]' => FILTER_SANITIZE_STRING,
+                'removetask[]' => FILTER_SANITIZE_STRING);
             
             $result = filter_input_array(INPUT_POST, $options);
             $checkResult =[];
             
+            $addtask = trim($result['addtask']);
             $addtaskarray = trim($result['addtask[]']);
+            $removetask = trim($result['removetask[]']);
             
             if(isset($addtaskarray) AND !empty($addtaskarray) ){
             $verif_addtaskarray = "ok";
@@ -81,12 +90,17 @@
         if(isset($_POST['unsave'])){
 
             $options = array(
-            'removetask[]' => FILTER_SANITIZE_STRING);
+                'addtask' => FILTER_SANITIZE_STRING,
+                'addtask[]' => FILTER_SANITIZE_STRING,
+                'removetask[]' => FILTER_SANITIZE_STRING);
         
             $result = filter_input_array(INPUT_POST, $options);
             $checkResult =[];
         
+            $addtask = trim($result['addtask']);
+            $addtaskarray = trim($result['addtask[]']);
             $removetask = trim($result['removetask[]']);
+
         
             if(isset($removetask) AND !empty($removetask) ){
             $verif_removetask = "ok";
