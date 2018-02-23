@@ -4,43 +4,7 @@
         $contenu_json = file_get_contents($filename);
         $receipt = json_decode($contenu_json, true);
         
-        // bouton ajouter
-        if (isset($_POST['submit']) AND end($receipt)['Nom'] != $_POST['addtask']){
-            $add_tache = $_POST['addtask'];
-            $array_tache = array("Nom" => $add_tache,
-                                "Terminer" => false);
-            $receipt[] = $array_tache;
-            $json= json_encode($receipt, JSON_PRETTY_PRINT);
-            file_put_contents($filename, $json);
-            $receipt = json_decode($json, true);
-        }
-        
-        // bouton enregistrer
-        if (isset($_POST['save'])){
-            $choix=$_POST['addtask'];
-            for ($init = 0; $init < count($receipt); $init ++){
-                if (in_array($receipt[$init]['Nom'], $choix)){
-                $receipt[$init]['Terminer'] = true;
-                }
-            }
-            $json= json_encode($receipt, JSON_PRETTY_PRINT);
-            file_put_contents($filename, $json);
-            $receipt = json_decode($json, true);
-        }
-
-        // bouton retirer
-        if (isset($_POST['unsave'])){
-            $choix=$_POST['removetask'];
-            // var_dump($choix);
-            for ($init = 0; $init < count($receipt); $init ++){
-                if (!in_array($receipt[$init]['Nom'], $choix)){
-                $receipt[$init]['Terminer'] = false;
-                }
-            }
-            $json= json_encode($receipt, JSON_PRETTY_PRINT);
-            file_put_contents($filename, $json);
-            $receipt = json_decode($json, true);
-        }
+        // if ((preg_match('#^[A-Za-z0-9 -]+$#{1,}', isset($_POST['save']))) OR  (preg_match('#^[A-Za-z0-9 -]+$#{1,}', isset($_POST['unsave']))) (preg_match('#^[A-Za-z0-9 -]+$#{1,}', isset($_POST['submit']))))
 
         if(isset($_POST['submit'])){
 
@@ -56,6 +20,7 @@
             $addtaskarray = trim($result['addtask[]']);
             $removetask = trim($result['removetask[]']);
 
+            
         
             if(isset($addtask) AND !empty($addtask) ){
             $verif_addtask = "ok";
@@ -110,7 +75,43 @@
             }
         }
         
-            
+        // bouton ajouter
+        if (isset($_POST['submit']) AND end($receipt)['Nom'] != $_POST['addtask']){
+            $add_tache = $_POST['addtask'];
+            $array_tache = array("Nom" => $add_tache,
+                                "Terminer" => false);
+            $receipt[] = $array_tache;
+            $json= json_encode($receipt, JSON_PRETTY_PRINT);
+            file_put_contents($filename, $json);
+            $receipt = json_decode($json, true);
+        }
+        
+        // bouton enregistrer
+        if (isset($_POST['save'])){
+            $choix=$_POST['addtask'];
+            for ($init = 0; $init < count($receipt); $init ++){
+                if (in_array($receipt[$init]['Nom'], $choix)){
+                $receipt[$init]['Terminer'] = true;
+                }
+            }
+            $json= json_encode($receipt, JSON_PRETTY_PRINT);
+            file_put_contents($filename, $json);
+            $receipt = json_decode($json, true);
+        }
+
+        // bouton retirer
+        if (isset($_POST['unsave'])){
+            $choix=$_POST['removetask'];
+            // var_dump($choix);
+            for ($init = 0; $init < count($receipt); $init ++){
+                if (!in_array($receipt[$init]['Nom'], $choix)){
+                $receipt[$init]['Terminer'] = false;
+                }
+            }
+            $json= json_encode($receipt, JSON_PRETTY_PRINT);
+            file_put_contents($filename, $json);
+            $receipt = json_decode($json, true);
+        }
 
     ?>
     <!DOCTYPE html>
@@ -134,7 +135,7 @@
                                 <?php
                                     foreach ($receipt as $key => $value){
                                         if ($value["Terminer"] == false){
-                                            echo "<input type='checkbox' name='addtask[]' value='".$value["Nom"]."'/>
+                                            echo "<input type='checkbox' pattern='[A-Za-z0-9 -]{1,}' name='addtask[]' value='".$value["Nom"]."'/>
                                                 <label for='choix'>".$value["Nom"]."</label><br />";
                                         }
                                     }
@@ -155,7 +156,7 @@
                                     foreach ($receipt as $key => $value){
                                         if ($value["Terminer"] == true){
 
-                                            echo "<input type='checkbox' name='removetask[]' value='".$value["Nom"]."'checked/>
+                                            echo "<input type='checkbox' pattern='[A-Za-z0-9 -]{1,}' name='removetask[]' value='".$value["Nom"]."'checked/>
                                                 <label for='choix'>".$value["Nom"]."</label><br />";
                                         }
                                     }
@@ -176,7 +177,7 @@
                         </div>
                         <div class="add">
                             <form class="" action="index.php" method="post">
-                                <input type="text" name="addtask" value="">
+                                <input type="text" pattern='[A-Za-z0-9 -]{1,}' name="addtask" value="">
                                 <input type="submit" name="submit" value="Ajouter">
                             </form>
                         </div>
