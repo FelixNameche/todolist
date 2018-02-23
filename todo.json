@@ -1,11 +1,11 @@
 [
     {
         "Nom": "Se rappeler que Grand-m\u00e8re est morte",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Terminer Grand-m\u00e8re",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Peter un plomb",
@@ -25,7 +25,7 @@
     },
     {
         "Nom": "Imiter le cri de Chewbacca",
-        "Terminer": true
+        "Terminer": false
     },
     {
         "Nom": "Rappeler Grand-m\u00e8re",
@@ -37,6 +37,6 @@
     },
     {
         "Nom": "Terminer Grand-p\u00e8re",
-        "Terminer": true
+        "Terminer": false
     }
 ]
