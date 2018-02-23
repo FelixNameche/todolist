@@ -9,15 +9,15 @@
     },
     {
         "Nom": "Peter un plomb",
-        "Terminer": true
+        "Terminer": false
     },
     {
         "Nom": "Dormir",
-        "Terminer": true
+        "Terminer": false
     },
     {
         "Nom": "Jouer \u00e0 lol",
-        "Terminer": true
+        "Terminer": false
     },
     {
         "Nom": "Faire les courses",
@@ -37,6 +37,6 @@
     },
     {
         "Nom": "Terminer Grand-p\u00e8re",
-        "Terminer": false
+        "Terminer": true
     }
 ]

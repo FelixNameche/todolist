@@ -18,13 +18,11 @@
     // bouton enregistrer
     if (isset($_POST['save'])){
         $choix=$_POST['addtask'];
-
         for ($init = 0; $init < count($receipt); $init ++){
             if (in_array($receipt[$init]['Nom'], $choix)){
-              $receipt[$init]['Terminer'] = true;
+            $receipt[$init]['Terminer'] = true;
             }
         }
-
         $json= json_encode($receipt, JSON_PRETTY_PRINT);
         file_put_contents($filename, $json);
         $receipt = json_decode($json, true);
@@ -36,14 +34,70 @@
         // var_dump($choix);
         for ($init = 0; $init < count($receipt); $init ++){
             if (!in_array($receipt[$init]['Nom'], $choix)){
-              $receipt[$init]['Terminer'] = false;
+            $receipt[$init]['Terminer'] = false;
             }
         }
-
         $json= json_encode($receipt, JSON_PRETTY_PRINT);
         file_put_contents($filename, $json);
         $receipt = json_decode($json, true);
     }
+
+    if(isset($_POST['submit'])){
+
+        $options = array(
+        'addtask' => FILTER_SANITIZE_STRING);
+      
+        $result = filter_input_array(INPUT_POST, $options);
+        $checkResult =[];
+      
+        $addtask = trim($result['addtask']);
+      
+        if(isset($addtask) AND !empty($addtask) ){
+        $verif_addtask = "ok";
+        }
+        else {
+        $verif_addtask = "pok";
+        }
+    }
+
+    if(isset($_POST['save'])){
+
+        $options = array(
+        'addtask[]' => FILTER_SANITIZE_STRING);
+        
+        $result = filter_input_array(INPUT_POST, $options);
+        $checkResult =[];
+        
+        $addtaskarray = trim($result['addtask[]']);
+        
+        if(isset($addtaskarray) AND !empty($addtaskarray) ){
+        $verif_addtaskarray = "ok";
+        }
+        else {
+        $verif_addtaskarray = "pok";
+        }
+    }
+
+    if(isset($_POST['unsave'])){
+
+        $options = array(
+        'removetask[]' => FILTER_SANITIZE_STRING);
+      
+        $result = filter_input_array(INPUT_POST, $options);
+        $checkResult =[];
+      
+        $removetask = trim($result['removetask[]']);
+      
+        if(isset($removetask) AND !empty($removetask) ){
+        $verif_removetask = "ok";
+        }
+        else {
+        $verif_removetask = "pok";
+        }
+    }
+    
+        
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,7 +127,7 @@
                             ?>
                         </div>
                         <div class="buttonretrait">
-                            <input type="submit" name="save" value="Enregistrer" >
+                            <input id="buttonId" type="submit" name="save" value="Enregistrer">
                         </div>
                     </form>
                 </section>
@@ -94,7 +148,7 @@
                             ?>
                         </div>
                         <div class="buttonretrait">
-                            <input type="submit" name="unsave" value="Retirer">
+                            <input id="buttonId2" type="submit" name="unsave" value="Retirer">
                         </div>
                     </form>
                 </section>
