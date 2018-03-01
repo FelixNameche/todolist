@@ -22,6 +22,10 @@ h2 {
     font-size: 12px;
 }
 
+h3 {
+    font-size: 10px;
+}
+
 .task {
     padding-left: 10px;
 
@@ -55,4 +59,8 @@ h2 {
 .buttonretrait {
     text-decoration: none;
     padding-top: 10px;    
+}
+
+footer {
+    padding-top: 30px;
 }
