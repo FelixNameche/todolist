@@ -21,7 +21,7 @@
     },
     {
         "Nom": "Faire les courses",
-        "Terminer": true
+        "Terminer": false
     },
     {
         "Nom": "Imiter le cri de Chewbacca",
@@ -33,10 +33,10 @@
     },
     {
         "Nom": "Pr\u00e9venir Grand-p\u00e8re",
-        "Terminer": false
+        "Terminer": true
     },
     {
         "Nom": "Terminer Grand-p\u00e8re",
-        "Terminer": false
+        "Terminer": true
     }
 ]
