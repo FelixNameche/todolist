@@ -16,51 +16,62 @@ if ($conn->connect_error){
 
 }
 echo "connected succefully";
+
+if (isset($_POST['addtask'])) {
+
+    $addtask=($_POST['addtask']);
+    $dbaddtask= "INSERT INTO dbtask (task, stat) VALUES ('".$addtask."', '0')";
+    $result = $db->exec($dbaddtask);
+}
+
+
+
+
     // ini_set("dispay_errors",0);error_reporting(0);
     // $filename="todo.json";
     // $contenu_json = file_get_contents($filename);
     // $receipt = json_decode($contenu_json, true);
     
     // bouton ajouter
-    if (isset($_POST['submit']) AND end($receipt)['Nom'] != $_POST['addtask']){
-        $add_tache = $_POST['addtask'];
-        $array_tache = array("Nom" => $add_tache,
-                            "Terminer" => false);
-        $receipt[] = $array_tache;
+    // if (isset($_POST['submit']) AND end($receipt)['Nom'] != $_POST['addtask']){
+    //     $add_tache = $_POST['addtask'];
+    //     $array_tache = array("Nom" => $add_tache,
+    //                         "Terminer" => false);
+    //     $receipt[] = $array_tache;
 
-        $dbadd = "INSERT INTO dbtask (task, stat) 
-        VALUES ('".$addtask."', 'False')";
+    //     $dbadd = "INSERT INTO dbtask (task, stat) 
+    //     VALUES ('".$addtask."', 'False')";
         // $json= json_encode($receipt, JSON_PRETTY_PRINT);
         // file_put_contents($filename, $json);
         // $receipt = json_decode($json, true);
-    }
+    //}
     
     // bouton enregistrer
-    if (isset($_POST['save'])){
-        $choix=$_POST['addtask'];
-        for ($init = 0; $init < count($receipt); $init ++){
-            if (in_array($receipt[$init]['Nom'], $choix)){
-            $receipt[$init]['Terminer'] = true;
-            }
-        }
+    // if (isset($_POST['save'])){
+    //     $choix=$_POST['addtask'];
+    //     for ($init = 0; $init < count($receipt); $init ++){
+    //         if (in_array($receipt[$init]['Nom'], $choix)){
+    //         $receipt[$init]['Terminer'] = true;
+    //         }
+    //     }
         // $json= json_encode($receipt, JSON_PRETTY_PRINT);
         // file_put_contents($filename, $json);
         // $receipt = json_decode($json, true);
-    }
+    //}
 
     // bouton retirer
-    if (isset($_POST['unsave'])){
-        $choix=$_POST['removetask'];
-        // var_dump($choix);
-        for ($init = 0; $init < count($receipt); $init ++){
-            if (!in_array($receipt[$init]['Nom'], $choix)){
-            $receipt[$init]['Terminer'] = false;
-            }
-        }
+    // if (isset($_POST['unsave'])){
+    //     $choix=$_POST['removetask'];
+    //     // var_dump($choix);
+    //     for ($init = 0; $init < count($receipt); $init ++){
+    //         if (!in_array($receipt[$init]['Nom'], $choix)){
+    //         $receipt[$init]['Terminer'] = false;
+    //         }
+    //     }
         // $json= json_encode($receipt, JSON_PRETTY_PRINT);
         // file_put_contents($filename, $json);
         // $receipt = json_decode($json, true);
-    }
+    //}
 
     // if(isset($_POST['submit'])){
 
@@ -116,7 +127,7 @@ echo "connected succefully";
     //     }
     // }
     
-    var_dump($addtask);
+    //var_dump($addtask);
 
 ?>
 <!DOCTYPE html>
@@ -145,6 +156,9 @@ echo "connected succefully";
                                         $result = $db->query('SELECT * FROM dbtask WHERE stat="0"');
                                         $resultArr = $result->fetchAll(PDO::FETCH_ASSOC);
                                         print_R($resultArr);
+
+                                        $dbup = "UPDATE dbtask SET stat = 'True' WHERE task='".save."'";
+                                        $resultat = $db->exec($dbup);
                                 //     }
                                 // }
                             ?>
@@ -170,10 +184,8 @@ echo "connected succefully";
                                         $resultArr = $result->fetchAll(PDO::FETCH_ASSOC);
                                     print_R($resultArr);
 
-                                    $dbup = "UPDATE dbtask SET stat = 'True' WHERE task='".$key."'";
-                                    //Si nomtache est égale à la valeur checkée, remplacement de 'False' par 'True'
-    
-                                    $resultat = $db->exec($dbup); // Exécution... ( query )
+                                    $dbunup = "UPDATE dbtask SET stat = 'False' WHERE task='".$unsave."'";
+                                    $resultat = $db->exec($dbunup);
     
                                 //     }
                                 // }
@@ -195,10 +207,8 @@ echo "connected succefully";
                     <div class="add">
                         <form class="" action="contenu.php" method="post">
                             <?php
-                                $dbadd = "INSERT INTO dbtask (task, stat) VALUES ('".$submit."', 'False')";
-                        //         //Ajout de la tache dans la database avec la valeur 'False'
-                                $resultat = $db->exec($dbadd);
-                        //         //execution de la requête sur la base de donnée
+                                // $dbadd = "INSERT INTO dbtask (task, stat) VALUES ('."submit".', 'False')";
+                                // $resultat = $db->exec($dbadd);
                             ?>
                             <input type="text" name="addtask" value="">
                             <input type="submit" name="submit" value="Ajouter">
